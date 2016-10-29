@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">BeaconQuest</string>
+
+    <!-- sign in/up screen -->
+    <string name="sign_in">Sign In</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+
+    <!-- sign in strings -->
+    <string name="login">Login</string>
+
+    <!-- signup screen -->
+    <string name="email">Email</string>
+    <string name="register">Register</string>
+    <string name="confirm_password">Confirm password</string>
+
+
+</resources>

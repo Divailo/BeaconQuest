@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/uk.co.ivaylokhr.beacon123"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.design.widget.TabLayout
+        android:id="@+id/sigin_up_bottomtablayout"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:layout_alignParentTop="true"
+        app:tabBackground="@color/white"
+        app:tabGravity="fill"
+        app:tabMode="fixed">
+
+        <android.support.design.widget.TabItem
+            android:id="@+id/siginup_signin_tab"
+            style="@style/tab_default"
+            android:text="@string/sign_in" />
+
+        <android.support.design.widget.TabItem
+            android:id="@+id/siginup_signup_tab"
+            style="@style/tab_default"
+            android:text="@string/sign_up" />
+
+    </android.support.design.widget.TabLayout>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/sigin_up_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+</RelativeLayout>

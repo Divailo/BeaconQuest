@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/homescreen_profile_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="15dp"
+        android:text="My Profile"/>
+
+    <!--<FrameLayout-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_centerInParent="true">-->
+        <!---->
+        <!---->
+    <!--</FrameLayout>-->
+
+    <pl.bclogic.pulsator4droid.library.PulsatorLayout
+        android:id="@+id/shano"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        app:pulse_count="4"
+        app:pulse_duration="7000"
+        app:pulse_repeat="0"
+        app:pulse_color="@color/green_main"
+        app:pulse_startFromScratch="false"
+        app:pulse_interpolator="Linear">
+
+        <ImageButton
+            android:id="@+id/homescreen_magic_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:src="@drawable/ic_search_black_24dp"
+            android:background="@color/transparent"/>
+
+    </pl.bclogic.pulsator4droid.library.PulsatorLayout>
+
+
+</RelativeLayout>
