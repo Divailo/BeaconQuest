@@ -50,9 +50,9 @@ public class FragmentProfileQuests extends BaseFragment {
     private void setUpRecycler(){
         ArrayList<Quest> adsList = new ArrayList<>();
         for (int i = 0; i < 10; i++){
-            adsList.add(new Quest("ADIDAS TRACKSUIT", "Sofia, Bulgaria", "40 £"));
-            adsList.add(new Quest("ADIBAS TRACKSUIT", "534, California", "10 €" ));
-            adsList.add(new Quest("ODIBOS TRACKSUIT", "Top Ad", "50 £"));
+            adsList.add(new Quest("Quest 1", "Sofia, Bulgaria", "Completed"));
+            adsList.add(new Quest("Quest 2", "Silistra, Bulgaria", "Pending" ));
+            adsList.add(new Quest("Quest 3", "Pernik. Bulgaria", "Cancelled"));
         }
 
         questList.setLayoutManager(new LinearLayoutManager(this.getActivity()));

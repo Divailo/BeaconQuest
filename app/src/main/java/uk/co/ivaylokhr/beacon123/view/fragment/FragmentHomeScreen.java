@@ -84,7 +84,7 @@ public class FragmentHomeScreen extends BaseFragment {
     }
 
     private void setUpService(){
-        beaconQuestService = retrofit.create(BeaconQuestService.class);
+        beaconQuestService = ((MainActivity)getActivity()).getRetrofit().create(BeaconQuestService.class);
     }
 
     private void initBeaconManager(){

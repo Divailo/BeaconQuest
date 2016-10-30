@@ -13,9 +13,10 @@
         android:paddingRight="10dp"/>
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_toEndOf="@+id/quest_status_icon"
+        android:layout_toStartOf="@+id/quest_cancel_option_container"
         android:orientation="vertical"
         android:paddingRight="10dp">
 
@@ -45,6 +46,33 @@
             android:text="Status" />
 
     </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/quest_cancel_option_container"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:clickable="true">
+
+        <ImageView
+            android:id="@+id/_quest_cancel_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_cancel_black_24dp"/>
+
+        <TextView
+            android:id="@+id/quest_cancel_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/_quest_cancel_icon"
+            android:layout_centerVertical="true"
+            android:text="Cancel \n quest"/>
+
+
+
+    </RelativeLayout>
 
 
 </RelativeLayout>

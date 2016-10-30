@@ -28,12 +28,13 @@ public class MainActivity extends AppCompatActivity implements Callbacks {
         SharedPref sp = new SharedPref(this);
         SharedPref.putString("key1", "value1");
         SharedPref.putString("key2", "value2");
+        initRetrofit();
         onChangeFragment(FragmentSignInUpPaged.class, new Bundle(), false);
     }
 
     private void initRetrofit(){
         retrofit = new Retrofit.Builder()
-//                .baseUrl("")
+                .baseUrl("https://untitled-danchoqkiqmanqk.c9users.io/index/beaconQuest/")
                 .build();
     }
 
