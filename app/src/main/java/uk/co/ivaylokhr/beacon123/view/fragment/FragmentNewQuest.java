@@ -12,12 +12,8 @@ import android.widget.Toast;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import okhttp3.ResponseBody;
-import retrofit2.Call;
 import uk.co.ivaylokhr.beacon123.R;
-import uk.co.ivaylokhr.beacon123.controller.requestcallbacks.ChallengeAnswerCallback;
 import uk.co.ivaylokhr.beacon123.controller.util.SharedPref;
-import uk.co.ivaylokhr.beacon123.model.services.BeaconQuestService;
 import uk.co.ivaylokhr.beacon123.view.activity.MainActivity;
 
 /**
@@ -43,10 +39,10 @@ public class FragmentNewQuest extends BaseFragment {
             @Override
             public void onClick(View v) {
 
-
-                BeaconQuestService bqs = ((MainActivity)getActivity()).getRetrofit().create(BeaconQuestService.class);
-                Call<ResponseBody> call = bqs.challengeAnswer("6", "b1", String.valueOf(answerBox.getText()));
-                call.enqueue(new ChallengeAnswerCallback((MainActivity)getActivity()));
+//
+//                BeaconQuestService bqs = ((MainActivity)getActivity()).getRetrofit().create(BeaconQuestService.class);
+//                Call<ResponseBody> call = bqs.challengeAnswer("6", "b1", String.valueOf(answerBox.getText()));
+//                call.enqueue(new ChallengeAnswerCallback((MainActivity)getActivity()));
 
                 ((MainActivity)getActivity()).onChangeFragment(FragmentProfilePaged.class, new Bundle(), false);
 
