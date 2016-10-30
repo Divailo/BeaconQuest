@@ -5,15 +5,21 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.View;
 
+import retrofit2.Retrofit;
+import uk.co.ivaylokhr.beacon123.view.activity.MainActivity;
 import uk.co.ivaylokhr.beacon123.view.callbackinterface.Callbacks;
 
-public abstract class BaseFragment extends Fragment
-{
+public abstract class BaseFragment extends Fragment {
+
+    protected Retrofit retrofit;
+
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState)
     {
         super.onViewCreated(view, savedInstanceState);
         mCallbacks.onLayoutLoaded();
+
+        retrofit = ((MainActivity)this.getActivity()).getRetrofit();
     }
 
     @Override

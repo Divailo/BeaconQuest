@@ -2,6 +2,7 @@ package uk.co.ivaylokhr.beacon123.view.fragment;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,7 @@ import android.widget.Button;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import uk.co.ivaylokhr.beacon123.R;
+import uk.co.ivaylokhr.beacon123.controller.util.SharedPref;
 import uk.co.ivaylokhr.beacon123.view.activity.MainActivity;
 
 /**
@@ -40,6 +42,9 @@ public class FragmentSignIn extends BaseFragment {
         ButterKnife.bind(this, rootView);
 
         setListeners();
+
+        Log.d("sharedpref", SharedPref.getString("key1"));
+        Log.d("sharedpref", SharedPref.getString("key2"));
 
         return rootView;
     }

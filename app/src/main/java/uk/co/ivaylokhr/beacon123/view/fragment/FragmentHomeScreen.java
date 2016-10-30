@@ -25,6 +25,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import pl.bclogic.pulsator4droid.library.PulsatorLayout;
 import uk.co.ivaylokhr.beacon123.R;
+import uk.co.ivaylokhr.beacon123.model.services.BeaconQuestService;
 import uk.co.ivaylokhr.beacon123.view.activity.MainActivity;
 
 /**
@@ -33,11 +34,17 @@ import uk.co.ivaylokhr.beacon123.view.activity.MainActivity;
 
 public class FragmentHomeScreen extends BaseFragment {
 
-    private boolean isShaning = false;
-
+    //Views
     @BindView(R.id.homescreen_profile_button) View profileButton;
     @BindView(R.id.homescreen_magic_button) View magicButton;
     @BindView(R.id.shano) PulsatorLayout pulsatorLayout;
+
+    private boolean isShaning = false;
+
+    private BeaconManager beaconManager;
+
+    //Retrofit
+    BeaconQuestService beaconQuestService;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -46,6 +53,7 @@ public class FragmentHomeScreen extends BaseFragment {
         ButterKnife.bind(this, rootView);
 
         setListeners();
+        setUpService();
 
         return rootView;
     }
@@ -75,7 +83,9 @@ public class FragmentHomeScreen extends BaseFragment {
 
     }
 
-    private BeaconManager beaconManager;
+    private void setUpService(){
+        beaconQuestService = retrofit.create(BeaconQuestService.class);
+    }
 
     private void initBeaconManager(){
         beaconManager = new BeaconManager(this.getActivity().getApplicationContext());

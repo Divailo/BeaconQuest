@@ -10,18 +10,35 @@ import android.view.inputmethod.InputMethodManager;
 
 import com.estimote.sdk.SystemRequirementsChecker;
 
+import retrofit2.Retrofit;
 import uk.co.ivaylokhr.beacon123.R;
+import uk.co.ivaylokhr.beacon123.controller.util.SharedPref;
 import uk.co.ivaylokhr.beacon123.view.callbackinterface.Callbacks;
 import uk.co.ivaylokhr.beacon123.view.fragment.FragmentSignInUpPaged;
 
 public class MainActivity extends AppCompatActivity implements Callbacks {
+
+    Retrofit retrofit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        SharedPref sp = new SharedPref(this);
+        SharedPref.putString("key1", "value1");
+        SharedPref.putString("key2", "value2");
         onChangeFragment(FragmentSignInUpPaged.class, new Bundle(), false);
+    }
+
+    private void initRetrofit(){
+        retrofit = new Retrofit.Builder()
+//                .baseUrl("")
+                .build();
+    }
+
+    public Retrofit getRetrofit(){
+        return retrofit;
     }
 
     @Override
