@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -48,6 +49,8 @@ public class FragmentNewQuest extends BaseFragment {
                 call.enqueue(new ChallengeAnswerCallback((MainActivity)getActivity()));
 
                 ((MainActivity)getActivity()).onChangeFragment(FragmentProfilePaged.class, new Bundle(), false);
+
+                Toast.makeText(selfRef.getActivity(), "Correct!", Toast.LENGTH_SHORT).show();
 
             }
         });
