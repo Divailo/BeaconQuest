@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity implements Callbacks {
 
     private void initRetrofit(){
         retrofit = new Retrofit.Builder()
-                .baseUrl("https://untitled-danchoqkiqmanqk.c9users.io/index/beaconQuest/")
+                .baseUrl("https://untitled-danchoqkiqmanqk.c9users.io/")
                 .build();
     }
 

@@ -2,9 +2,8 @@ package uk.co.ivaylokhr.beacon123.model.services;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;
-import retrofit2.http.Field;
-import retrofit2.http.FormUrlEncoded;
-import retrofit2.http.POST;
+import retrofit2.http.GET;
+import retrofit2.http.Path;
 
 /**
  * Created by Ivaylo on 30/10/2016.
@@ -12,35 +11,29 @@ import retrofit2.http.POST;
 
 public interface BeaconQuestService {
 
-    @FormUrlEncoded
-    @POST("/challengeNew")
-    Call<ResponseBody> registerBeacon(@Field("accountId") String userid,
-                                      @Field("beaconId") String beaconid
+    @GET("/beaconQuest/index/takeChallenge/{accountId}/{beaconId}")
+    Call<ResponseBody> takeChallenge (@Path("accountId") String accountId,
+                                      @Path("beaconId") String beaconId
     );
 
-    @FormUrlEncoded
-    @POST("/challengeAnswer")
-    Call<ResponseBody> challengeAnswer(@Field("accountId") String userid,
-                                      @Field("beaconId") String beaconid,
-                                       @Field("answer") String answer
+    @GET("beaconQuest/index//challengeAnswer/{accountId}/{beaconId}/{answer}")
+    Call<ResponseBody> challengeAnswer(@Path("accountId") String userid,
+                                      @Path("beaconId") String beaconid,
+                                       @Path("answer") String answer
     );
 
-    @FormUrlEncoded
-    @POST("/challengeCancel")
-    Call<ResponseBody> challengeAnswer(@Field("accountId") String userid,
-                                       @Field("beaconId") String beaconid
+    @GET("beaconQuest/index//challengeCancel/{accountId}/{beaconId}")
+    Call<ResponseBody> challengeAnswer(@Path("accountId") String userid,
+                                       @Path("beaconId") String beaconid
     );
 
-    @FormUrlEncoded
-    @POST("/registerAccount")
-    Call<ResponseBody> registerAccount(@Field("username") String username,
-                                       @Field("email") String mail,
-                                       @Field("password") String password
+    @GET("beaconQuest/index//register/{username}/{password}")
+    Call<ResponseBody> registerAccount(@Path("username") String username,
+                                       @Path("password") String password
     );
 
-    @FormUrlEncoded
-    @POST("/login")
-    Call<ResponseBody> login(@Field("username") String username,
-                             @Field("password") String password
+    @GET("beaconQuest/index//login/{username}/{password}/")
+    Call<ResponseBody> login(@Path("username") String username,
+                             @Path("password") String password
     );
 }

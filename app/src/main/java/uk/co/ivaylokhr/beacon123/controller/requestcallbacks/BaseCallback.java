@@ -34,6 +34,7 @@ public abstract class BaseCallback implements Callback<ResponseBody> {
         Log.i("statuscode", String.valueOf(statusCode));
 
         BufferedReader reader = null;
+        Log.d("123456", response.message());
         StringBuilder sb = new StringBuilder();
         if (response.body().byteStream() != null) {
             reader = new BufferedReader(

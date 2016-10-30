@@ -25,7 +25,6 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import pl.bclogic.pulsator4droid.library.PulsatorLayout;
 import uk.co.ivaylokhr.beacon123.R;
-import uk.co.ivaylokhr.beacon123.model.services.BeaconQuestService;
 import uk.co.ivaylokhr.beacon123.view.activity.MainActivity;
 
 /**
@@ -43,9 +42,6 @@ public class FragmentHomeScreen extends BaseFragment {
 
     private BeaconManager beaconManager;
 
-    //Retrofit
-    BeaconQuestService beaconQuestService;
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_homescreen, container, false);
@@ -53,7 +49,6 @@ public class FragmentHomeScreen extends BaseFragment {
         ButterKnife.bind(this, rootView);
 
         setListeners();
-        setUpService();
 
         return rootView;
     }
@@ -81,10 +76,6 @@ public class FragmentHomeScreen extends BaseFragment {
             }
         });
 
-    }
-
-    private void setUpService(){
-        beaconQuestService = ((MainActivity)getActivity()).getRetrofit().create(BeaconQuestService.class);
     }
 
     private void initBeaconManager(){
