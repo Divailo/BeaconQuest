@@ -3,6 +3,7 @@ package uk.co.ivaylokhr.beacon123.view.fragment;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.helper.ItemTouchHelper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,14 +15,18 @@ import butterknife.ButterKnife;
 import uk.co.ivaylokhr.beacon123.R;
 import uk.co.ivaylokhr.beacon123.controller.adapters.QuestRecyclerAdapter;
 import uk.co.ivaylokhr.beacon123.model.Quest;
+import uk.co.ivaylokhr.beacon123.view.customviews.ItemTouchHelperCallback;
+import uk.co.ivaylokhr.beacon123.view.customviews.OnStartDragListener;
 
 /**
  * Created by Ivaylo on 29/10/2016.
  */
 
-public class FragmentProfileQuests extends BaseFragment {
+public class FragmentProfileQuests extends BaseFragment implements OnStartDragListener {
 
     @BindView(R.id.profile_some_list) RecyclerView questList;
+
+    private ItemTouchHelper mItemTouchHelper;
 
     public FragmentProfileQuests() {
     }
@@ -56,8 +61,18 @@ public class FragmentProfileQuests extends BaseFragment {
         }
 
         questList.setLayoutManager(new LinearLayoutManager(this.getActivity()));
-        questList.setAdapter(new QuestRecyclerAdapter(this.getActivity(), adsList));
+        QuestRecyclerAdapter qra = new QuestRecyclerAdapter(this.getActivity(), adsList);
+        questList.setAdapter(qra);
 
+        ItemTouchHelper.Callback callback = new ItemTouchHelperCallback(qra);
+        mItemTouchHelper = new ItemTouchHelper(callback);
+        mItemTouchHelper.attachToRecyclerView(questList);
+
+    }
+
+    @Override
+    public void onStartDrag(RecyclerView.ViewHolder viewHolder) {
+        mItemTouchHelper.startDrag(viewHolder);
     }
 
 }

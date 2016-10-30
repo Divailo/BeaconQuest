@@ -1,6 +1,7 @@
 package uk.co.ivaylokhr.beacon123.controller.adapters;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,12 +13,14 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import uk.co.ivaylokhr.beacon123.R;
 import uk.co.ivaylokhr.beacon123.model.Quest;
+import uk.co.ivaylokhr.beacon123.view.customviews.ItemTouchHelperAdapter;
+import uk.co.ivaylokhr.beacon123.view.customviews.ItemTouchHelperViewHolder;
 
 /**
  * Created by Ivaylo on 29/10/2016.
  */
 
-public class QuestRecyclerAdapter extends BaseRecyclerAdapter {
+public class QuestRecyclerAdapter extends BaseRecyclerAdapter implements ItemTouchHelperAdapter {
 
     private ArrayList<Quest> questList;
 
@@ -57,7 +60,20 @@ public class QuestRecyclerAdapter extends BaseRecyclerAdapter {
         return questList== null ? 0 : questList.size();
     }
 
-    class QuestViewHolder extends RecyclerView.ViewHolder{
+
+
+    @Override
+    public boolean onItemMove(int fromPosition, int toPosition) {
+        return false;
+    }
+
+    @Override
+    public void onItemDismiss(int position) {
+        questList.remove(position);
+        notifyItemRemoved(position);
+    }
+
+    class QuestViewHolder extends RecyclerView.ViewHolder implements ItemTouchHelperViewHolder{
 
         @BindView(R.id.quest_string1) TextView tv1;
         @BindView(R.id.quest_string2) TextView tv2;
@@ -66,6 +82,16 @@ public class QuestRecyclerAdapter extends BaseRecyclerAdapter {
         public QuestViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
+        }
+
+        @Override
+        public void onItemSelected() {
+            itemView.setBackgroundColor(Color.BLACK);
+        }
+
+        @Override
+        public void onItemClear() {
+            itemView.setBackgroundColor(0);
         }
     }
 }
