@@ -15,5 +15,12 @@
     <string name="register">Register</string>
     <string name="confirm_password">Confirm password</string>
 
+    <!-- beacon found aftermath -->
+    <string name="beacon_found"><b>Beacon found</b></string>
+    <string name="newquest_label">Here is your new quest</string>
+    <string name="newquest_description_default">NEW QUEST</string>
+    <string name="newquest_still_quest_left">You have to finish your quest first</string>
+    <string name="send">Send</string>
+    <string name="answer">Answer</string>
 
 </resources>

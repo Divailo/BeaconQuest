@@ -191,10 +191,13 @@ public class FragmentHomeScreen extends BaseFragment {
                     Log.i(""+i, ""+list.get(i).getMacAddress() +" "+ Utils.computeAccuracy(list.get(i)));
                 }
                 Beacon nearestBeacon = list.get(0);
-                // TODO: update the UI here
-                //TODO: lots of stuff
-                Toast.makeText(activity,String.valueOf(nearestBeacon.getRssi()),Toast.LENGTH_SHORT).show();
+//                Toast toast = Toast.makeText(activity,String.valueOf(nearestBeacon.getRssi()),Toast.LENGTH_SHORT);
+                Toast toast = Toast.makeText(activity,"Beacon found",Toast.LENGTH_SHORT);
+                toast.show();
 //                Log.i("nearest at ", ""+nearestBeacon.getMacAddress() +" "+ Utils.computeAccuracy(nearestBeacon)+ " "+Utils.computeProximity(nearestBeacon));
+
+                //TODO: update the UI here
+                //TODO: lots of stuff
             }
         }
     }

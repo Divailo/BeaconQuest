@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_centerVertical="true"
+        android:layout_alignParentStart="true">
+
+        <TextView
+            android:id="@+id/beaconfound_text"
+            style="@style/beaconfound_text"/>
+
+        <TextView
+            android:id="@+id/newquest_label"
+            style="@style/newquest_label"
+            android:text="@string/newquest_still_quest_left"/>
+
+        <TextView
+            android:id="@+id/newquest_description"
+            style="@style/newquest_description" />
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dp"
+            style="@style/sigin_textfield_container">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/finishquest_answer_box"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"
+                android:hint="@string/answer"
+                android:inputType="text"
+                style="@style/signin_textfield"/>
+
+        </android.support.design.widget.TextInputLayout>
+
+        <Button
+            style="@style/newquest_ok_button"
+            android:text="@string/send"/>
+
+    </LinearLayout>
+
+</RelativeLayout>
