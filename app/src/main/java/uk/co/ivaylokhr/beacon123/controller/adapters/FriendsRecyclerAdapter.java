@@ -15,11 +15,11 @@ import uk.co.ivaylokhr.beacon123.model.Friend;
  * Created by Ivaylo on 29/10/2016.
  */
 
-public class FirendsRecyclerAdapter extends BaseRecyclerAdapter {
+public class FriendsRecyclerAdapter extends BaseRecyclerAdapter {
 
     private ArrayList<Friend> friendsList;
 
-    public FirendsRecyclerAdapter(Context context, ArrayList<Friend> elements) {
+    public FriendsRecyclerAdapter(Context context, ArrayList<Friend> elements) {
         super(context);
         friendsList = elements;
     }
