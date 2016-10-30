@@ -38,6 +38,8 @@ dependencies {
 
     compile 'pl.bclogic:pulsator4droid:1.0.3'
 
+    compile 'com.estimote:sdk:0.13.0@aar'
+
 
     testCompile 'junit:junit:4.12'
 }
