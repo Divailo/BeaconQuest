@@ -4,9 +4,11 @@ import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import uk.co.ivaylokhr.beacon123.R;
 import uk.co.ivaylokhr.beacon123.model.Quest;
@@ -44,6 +46,9 @@ public class QuestRecyclerAdapter extends BaseRecyclerAdapter {
         Quest currentQuest = questList.get(position);
 
         //put model into view by actualHolder.someview.set......
+        actualHolder.tv1.setText(currentQuest.getString1());
+        actualHolder.tv2.setText(currentQuest.getString2());
+        actualHolder.tv3.setText(currentQuest.getString3());
 
     }
 
@@ -53,6 +58,10 @@ public class QuestRecyclerAdapter extends BaseRecyclerAdapter {
     }
 
     class QuestViewHolder extends RecyclerView.ViewHolder{
+
+        @BindView(R.id.quest_string1) TextView tv1;
+        @BindView(R.id.quest_string2) TextView tv2;
+        @BindView(R.id.quest_string3) TextView tv3;
 
         public QuestViewHolder(View itemView) {
             super(itemView);

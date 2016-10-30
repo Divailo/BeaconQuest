@@ -14,6 +14,14 @@
             android:background="@color/green_main"
             android:fitsSystemWindows="true"
             app:layout_scrollFlags="scroll|snap|exitUntilCollapsed|enterAlways">
+
+            <ImageView
+                android:id="@+id/profile_backbutton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top|start"
+                android:src="@drawable/ic_arrow_back_black_24dp"
+                android:padding="10dp"/>
             
             <LinearLayout
                 android:layout_width="match_parent"
@@ -21,12 +29,20 @@
                 android:orientation="vertical">
                 
                 <TextView
+                    android:id="@+id/profile_appbar_bigtext"
                     android:layout_width="match_parent"
-                    android:layout_height="96dp" />
+                    android:layout_height="96dp"
+                    android:gravity="bottom|center_horizontal"
+                    android:textSize="20sp"
+                    android:text="BIG TEXT"/>
                 
                 <TextView
+                    android:id="@+id/profile_appbar_smalltext"
                     android:layout_width="match_parent"
-                    android:layout_height="32dp" />
+                    android:layout_height="32dp"
+                    android:gravity="top|center_horizontal"
+                    android:textSize="12sp"
+                    android:text="SMALL TEXT"/>
 
             </LinearLayout>
 

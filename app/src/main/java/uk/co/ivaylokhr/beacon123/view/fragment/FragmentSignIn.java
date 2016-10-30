@@ -50,7 +50,7 @@ public class FragmentSignIn extends BaseFragment {
             @Override
             public void onClick(View v) {
                 //TODO: retrofit
-                ((MainActivity)f.getActivity()).onChangeFragment(FragmenHomeScreen.class, new Bundle(), false);
+                ((MainActivity)f.getActivity()).onChangeFragment(FragmentHomeScreen.class, new Bundle(), false);
             }
         });
     }

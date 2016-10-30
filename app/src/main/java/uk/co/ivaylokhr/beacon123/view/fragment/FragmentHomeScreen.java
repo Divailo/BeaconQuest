@@ -16,7 +16,9 @@ import uk.co.ivaylokhr.beacon123.view.activity.MainActivity;
  * Created by Ivaylo on 29/10/2016.
  */
 
-public class FragmenHomeScreen extends BaseFragment {
+public class FragmentHomeScreen extends BaseFragment {
+
+    private boolean isShaning = false;
 
     @BindView(R.id.homescreen_profile_button) View profileButton;
     @BindView(R.id.homescreen_magic_button) View magicButton;
@@ -45,7 +47,13 @@ public class FragmenHomeScreen extends BaseFragment {
         magicButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                pulsatorLayout.start();
+                if(!isShaning){
+                    pulsatorLayout.start();
+                    isShaning = true;
+                }else {
+                    pulsatorLayout.stop();
+                    isShaning = false;
+                }
             }
         });
 

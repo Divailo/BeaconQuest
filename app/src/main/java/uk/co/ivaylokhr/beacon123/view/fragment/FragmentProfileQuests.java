@@ -2,9 +2,7 @@ package uk.co.ivaylokhr.beacon123.view.fragment;
 
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.LinearSnapHelper;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.SnapHelper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -51,17 +49,14 @@ public class FragmentProfileQuests extends BaseFragment {
 
     private void setUpRecycler(){
         ArrayList<Quest> adsList = new ArrayList<>();
-//        for (int i = 0; i < 10; i++){
-//            adsList.add(new MyOrFavouriteAdModel("ADIDAS TRACKSUIT", "Sofia, Bulgaria", "40 £"));
-//            adsList.add(new MyOrFavouriteAdModel("ADIBAS TRACKSUIT", "534, California", "10 €" ));
-//            adsList.add(new MyOrFavouriteAdModel("ODIBOS TRACKSUIT", "Top Ad", null));
-//        }
+        for (int i = 0; i < 10; i++){
+            adsList.add(new Quest("ADIDAS TRACKSUIT", "Sofia, Bulgaria", "40 £"));
+            adsList.add(new Quest("ADIBAS TRACKSUIT", "534, California", "10 €" ));
+            adsList.add(new Quest("ODIBOS TRACKSUIT", "Top Ad", "50 £"));
+        }
 
         questList.setLayoutManager(new LinearLayoutManager(this.getActivity()));
         questList.setAdapter(new QuestRecyclerAdapter(this.getActivity(), adsList));
-
-        SnapHelper snapHelper = new LinearSnapHelper();
-        snapHelper.attachToRecyclerView(questList);
 
     }
 

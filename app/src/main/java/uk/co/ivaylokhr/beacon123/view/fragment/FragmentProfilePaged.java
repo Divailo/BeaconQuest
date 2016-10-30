@@ -2,6 +2,7 @@ package uk.co.ivaylokhr.beacon123.view.fragment;
 
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +14,7 @@ import uk.co.ivaylokhr.beacon123.R;
 import uk.co.ivaylokhr.beacon123.controller.adapters.ProfilePagerAdapter;
 import uk.co.ivaylokhr.beacon123.controller.listeners.SignInUpTabListener;
 import uk.co.ivaylokhr.beacon123.controller.util.ViewPagerTransformer;
+import uk.co.ivaylokhr.beacon123.view.activity.MainActivity;
 
 /**
  * Created by Ivaylo on 29/10/2016.
@@ -20,6 +22,7 @@ import uk.co.ivaylokhr.beacon123.controller.util.ViewPagerTransformer;
 
 public class FragmentProfilePaged extends BaseFragment {
 
+    @BindView(R.id.profile_backbutton) View backButton;
     @BindView(R.id.profile_viewpager) ViewPager viewPager;
     @BindView(R.id.myprofile_tablayout_top) TabLayout tabLayout;
 
@@ -29,11 +32,22 @@ public class FragmentProfilePaged extends BaseFragment {
 
         ButterKnife.bind(this, rootView);
 
+        setListeners();
         setUpViewPager();
         setUpTabLayout();
 
 
         return rootView;
+    }
+
+    private void setListeners(){
+        final Fragment selfRef = this;
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((MainActivity)selfRef.getActivity()).onChangeFragment(FragmentHomeScreen.class, new Bundle(), false);
+            }
+        });
     }
 
     private void setUpViewPager(){
