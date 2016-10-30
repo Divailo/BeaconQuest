@@ -39,6 +39,6 @@ public class RegisterAccountCallback extends BaseCallback {
     @Override
     public void onFailure(Call<ResponseBody> call, Throwable t) {
         Log.i(errorTag, "problem v RegisterAccountCallback");
-//        BaseActivity.showMessage(contextActivity, "Can't connect to server");
+//        BaseActivity.showMessage(applicationContext, "Can't connect to server");
     }
 }

@@ -23,7 +23,25 @@
             android:id="@+id/newquest_description"
             style="@style/newquest_description" />
 
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dp"
+            style="@style/sigin_textfield_container">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/finishquest_answer_box"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"
+                android:hint="@string/answer"
+                android:inputType="text"
+                style="@style/signin_textfield"/>
+
+        </android.support.design.widget.TextInputLayout>
+
         <Button
+            android:id="@+id/submit_button"
             style="@style/newquest_ok_button"/>
 
     </LinearLayout>

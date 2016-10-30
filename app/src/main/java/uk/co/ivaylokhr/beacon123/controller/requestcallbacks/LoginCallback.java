@@ -28,7 +28,18 @@ public class LoginCallback extends BaseCallback {
 
         try {
             jsonObject = new JSONObject(result);
+
+//            String text2 = (String) jsonObject.get("Error");
+//            if(!(text2.isEmpty() || text2 == null)){
+//                Log.d("result",text2);
+//                String s = SharedPref.getString("keyy");
+//                return;
+//            }
+
             String text = (String) jsonObject.get("Success");
+            Log.d("result",text);
+
+            applicationContext.cache(text);
             //do something with text
         } catch (JSONException e) {
             Log.i(errorTag, "problem v LoginCallback JSON");
@@ -39,6 +50,6 @@ public class LoginCallback extends BaseCallback {
     @Override
     public void onFailure(Call<ResponseBody> call, Throwable t) {
         Log.i(errorTag, "problem v LoginCallback");
-//        BaseActivity.showMessage(contextActivity, "Can't connect to server");
+//        BaseActivity.showMessage(applicationContext, "Can't connect to server");
     }
 }

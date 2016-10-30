@@ -1,7 +1,9 @@
 package uk.co.ivaylokhr.beacon123.view.activity;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -79,6 +81,13 @@ public class MainActivity extends AppCompatActivity implements Callbacks {
             e.printStackTrace();
             Log.e("REFLECTION", "IllegalAccessException", e);
         }
+    }
+
+    public void cache(String r){
+        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
+        android.content.SharedPreferences.Editor editor = sp.edit();
+        editor.putString("keyy", r);
+        editor.apply();
     }
 
     @Override

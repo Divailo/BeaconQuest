@@ -10,12 +10,8 @@ import android.widget.Button;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import okhttp3.ResponseBody;
-import retrofit2.Call;
 import uk.co.ivaylokhr.beacon123.R;
-import uk.co.ivaylokhr.beacon123.controller.requestcallbacks.LoginCallback;
 import uk.co.ivaylokhr.beacon123.controller.util.SharedPref;
-import uk.co.ivaylokhr.beacon123.model.services.BeaconQuestService;
 import uk.co.ivaylokhr.beacon123.view.activity.MainActivity;
 
 /**
@@ -59,9 +55,6 @@ public class FragmentSignIn extends BaseFragment {
             @Override
             public void onClick(View v) {
                 //TODO: retrofit
-                BeaconQuestService bqs = ((MainActivity)getActivity()).getRetrofit().create(BeaconQuestService.class);
-                Call<ResponseBody> call = bqs.takeChallenge("user1", "b1");
-                call.enqueue(new LoginCallback((MainActivity)getActivity()));
 
                 ((MainActivity)f.getActivity()).onChangeFragment(FragmentHomeScreen.class, new Bundle(), false);
             }

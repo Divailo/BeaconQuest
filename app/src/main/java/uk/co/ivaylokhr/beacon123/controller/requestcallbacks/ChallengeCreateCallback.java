@@ -28,10 +28,21 @@ public class ChallengeCreateCallback extends BaseCallback {
 
         try {
             jsonObject = new JSONObject(result);
-            String text = (String) jsonObject.get("ChallengeText");
-            //do something with text
+
+//            String text2 = (String) jsonObject.get("Error");
+//            if(!(text2.isEmpty() || text2 == null)){
+//                Log.d("result",text2);
+//                String s = SharedPref.getString("keyy");
+//                Log.d("a","b");
+//                return;
+//            }
+
+            String text = (String) jsonObject.get("NewChal");
+            Log.d("result",text);
+
+            applicationContext.cache(text);
         } catch (JSONException e) {
-            Log.i(errorTag, "problem v ChallengeNew JSON");
+            Log.i(errorTag, "problem v ChallengeC JSON");
         }
 
     }
@@ -39,6 +50,6 @@ public class ChallengeCreateCallback extends BaseCallback {
     @Override
     public void onFailure(Call<ResponseBody> call, Throwable t) {
         Log.i(errorTag, "problem v ChallengeNew");
-//        BaseActivity.showMessage(contextActivity, "Can't connect to server");
+//        BaseActivity.showMessage(applicationContext, "Can't connect to server");
     }
 }

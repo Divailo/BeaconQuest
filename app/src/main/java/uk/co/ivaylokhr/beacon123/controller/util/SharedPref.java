@@ -21,7 +21,7 @@ public class SharedPref {
         String actualKey = key.toLowerCase();
         editor.putString(actualKey, info);
         editor.apply();
-    }
+}
 
     public static String getString(String key){
         String actualKey = key.toLowerCase();

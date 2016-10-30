@@ -16,7 +16,7 @@ public interface BeaconQuestService {
                                       @Path("beaconId") String beaconId
     );
 
-    @GET("beaconQuest/index//challengeAnswer/{accountId}/{beaconId}/{answer}")
+    @GET("beaconQuest/index/challengeAnswer/{accountId}/{beaconId}/{answer}")
     Call<ResponseBody> challengeAnswer(@Path("accountId") String userid,
                                       @Path("beaconId") String beaconid,
                                        @Path("answer") String answer

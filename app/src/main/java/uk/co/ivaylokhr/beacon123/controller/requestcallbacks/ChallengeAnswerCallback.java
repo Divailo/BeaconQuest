@@ -39,6 +39,6 @@ public class ChallengeAnswerCallback extends BaseCallback {
     @Override
     public void onFailure(Call<ResponseBody> call, Throwable t) {
         Log.i(errorTag, "problem v ChallengeANswer");
-//        BaseActivity.showMessage(contextActivity, "Can't connect to server");
+//        BaseActivity.showMessage(applicationContext, "Can't connect to server");
     }
 }

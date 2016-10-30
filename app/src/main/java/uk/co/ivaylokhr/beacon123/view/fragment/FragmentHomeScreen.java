@@ -23,8 +23,12 @@ import java.util.UUID;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import okhttp3.ResponseBody;
 import pl.bclogic.pulsator4droid.library.PulsatorLayout;
+import retrofit2.Call;
 import uk.co.ivaylokhr.beacon123.R;
+import uk.co.ivaylokhr.beacon123.controller.requestcallbacks.ChallengeCreateCallback;
+import uk.co.ivaylokhr.beacon123.model.services.BeaconQuestService;
 import uk.co.ivaylokhr.beacon123.view.activity.MainActivity;
 
 /**
@@ -111,6 +115,8 @@ public class FragmentHomeScreen extends BaseFragment {
                 beaconManager.startRanging(region);
             }
         });
+
+        pulsatorLayout.setEnabled(false);
 //        Toast toast = Toast.makeText(this.getActivity(), "Looking for beacons", Toast.LENGTH_SHORT);
 //        toast.show();
 //                    isShaning = true;
@@ -195,10 +201,23 @@ public class FragmentHomeScreen extends BaseFragment {
 //                Toast toast = Toast.makeText(activity,String.valueOf(nearestBeacon.getRssi()),Toast.LENGTH_SHORT);
                 Toast toast = Toast.makeText(activity,"Beacon found",Toast.LENGTH_SHORT);
                 toast.show();
+
+
+                BeaconQuestService bqs = ((MainActivity)getActivity()).getRetrofit().create(BeaconQuestService.class);
+                Call<ResponseBody> call = bqs.takeChallenge("6", "b1");
+                call.enqueue(new ChallengeCreateCallback((MainActivity)getActivity()));
+
+                try {
+                    Thread.sleep(400);
+                    activity.onChangeFragment(FragmentNewQuest.class, new Bundle(), true);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+
+                beaconManager.disconnect();
+
 //                Log.i("nearest at ", ""+nearestBeacon.getMacAddress() +" "+ Utils.computeAccuracy(nearestBeacon)+ " "+Utils.computeProximity(nearestBeacon));
 
-                //TODO: update the UI here
-                //TODO: lots of stuff
             }
         }
     }

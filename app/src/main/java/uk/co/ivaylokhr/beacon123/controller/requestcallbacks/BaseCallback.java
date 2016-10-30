@@ -18,14 +18,14 @@ import uk.co.ivaylokhr.beacon123.view.activity.MainActivity;
 
 public abstract class BaseCallback implements Callback<ResponseBody> {
 
-    protected MainActivity contextActivity;
+    protected MainActivity applicationContext;
 
     protected String result;
 
     protected String errorTag = "callbackfail";
 
     public BaseCallback(MainActivity activity){
-        contextActivity = activity;
+        applicationContext = activity;
     }
 
     @Override
@@ -56,7 +56,7 @@ public abstract class BaseCallback implements Callback<ResponseBody> {
     @Override
     public void onFailure(Call<ResponseBody> call, Throwable t) {
         Log.i(errorTag, "problemcheta");
-//        BaseActivity.showMessage(contextActivity, "Can't connect to server");
+//        BaseActivity.showMessage(applicationContext, "Can't connect to server");
     }
 
 
